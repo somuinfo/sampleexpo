@@ -21,7 +21,7 @@ module.exports = env => {
    const fileEnv = dotenv.config({ path: finalPath }).parsed;
 const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
    console.log(fileEnv[next]);
-   prev[`process.env.${next}`] = JSON.stringify(fileEnv[next]);
+   prev[`${next}`] = JSON.stringify(fileEnv[next]);
    return prev;
  }, {});
  console.log(fileEnv);
@@ -54,4 +54,5 @@ const envKeys = Object.keys(fileEnv).reduce((prev, next) => {
     ]   
  }
 }
+
     "start": "webpack-dev-server --env.ENVIRONMENT=stage --open --hot",
